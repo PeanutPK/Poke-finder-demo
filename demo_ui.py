@@ -14,10 +14,10 @@ app.title("Poke Finder")
 frame1 = customtkinter.CTkFrame(app)
 frame2 = customtkinter.CTkFrame(app)
 
-player = Image.open('player_idle.png')
+player = Image.open('player_idle.png').resize((50, 50))
 player = ImageTk.PhotoImage(player)
 
-pika = Image.open('pikachu.png')
+pika = Image.open('pikachu.png').resize((50, 50))
 pika = ImageTk.PhotoImage(pika)
 
 player_label = customtkinter.CTkLabel(frame1, image=player, text='')
@@ -40,11 +40,15 @@ result_label = customtkinter.CTkEntry(frame2, textvariable=result_var)
 
 player_label.grid(row=0, column=0)
 pika_label.grid(row=0, column=1)
-place_butt.grid(row=1, column=0, padx=20, pady=20)
-name_butt.grid(row=1, column=1, padx=20, pady=20)
-result_label.grid(row=0, column=0)
+place_butt.grid(row=1, column=0, padx=20, pady=20, sticky='NEW')
+name_butt.grid(row=1, column=1, padx=20, pady=20, sticky='NEW')
+frame1.grid_columnconfigure((0, 1), weight=1)
+frame1.rowconfigure(1, weight=1)
 
-frame1.pack()
-frame2.pack()
+result_label.grid(row=0, column=0, sticky='NSEW')
+frame2.grid_columnconfigure(0, weight=1)
+
+frame1.pack(fill='both', expand=True)
+frame2.pack(fill='x', expand=False)
 
 app.mainloop()
