@@ -10,11 +10,18 @@ def combobox_callback():
 
 app = customtkinter.CTk()
 app.title("Poke Finder")
+app.attributes('-topmost', True)
 
+menu_frame = customtkinter.CTkFrame(app)
 frame1 = customtkinter.CTkFrame(app)
 frame2 = customtkinter.CTkFrame(app)
 
-player = Image.open('player_idle.png').resize((50, 50))
+features = ['Finder', 'Graphs', 'Stats comparer']
+for option in features:
+    button = customtkinter.CTkButton(menu_frame, text=option)
+    button.pack(side='left', padx=5, pady=5)
+
+player = Image.open('player_idle.png').resize((40, 50))
 player = ImageTk.PhotoImage(player)
 
 pika = Image.open('pikachu.png').resize((50, 50))
@@ -30,7 +37,7 @@ name_var = customtkinter.StringVar()
 name_var.set("Pokemon name")
 
 result_var = customtkinter.StringVar()
-result_var.set("Shortest Path: A->B->C->Destination")
+result_var.set("location list: location 1, 2, 3 and closest location")
 
 place_butt = customtkinter.CTkComboBox(frame1, variable=place_var)
 name_butt = customtkinter.CTkComboBox(frame1, variable=name_var)
@@ -47,8 +54,10 @@ frame1.rowconfigure(1, weight=1)
 
 result_label.grid(row=0, column=0, sticky='NSEW')
 frame2.grid_columnconfigure(0, weight=1)
+frame2.rowconfigure(0, weight=1)
 
+menu_frame.pack()
 frame1.pack(fill='both', expand=True)
-frame2.pack(fill='x', expand=False)
+frame2.pack(fill='both', expand=True)
 
 app.mainloop()
