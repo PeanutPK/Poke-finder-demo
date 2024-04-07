@@ -37,7 +37,7 @@ name_var = customtkinter.StringVar()
 name_var.set("Pokemon name")
 
 result_var = customtkinter.StringVar()
-result_var.set("location list: location 1, 2, 3 and closest location")
+result_var.set("location list: location 1, 2, 3")
 
 place_butt = customtkinter.CTkComboBox(frame1, variable=place_var)
 name_butt = customtkinter.CTkComboBox(frame1, variable=name_var)
