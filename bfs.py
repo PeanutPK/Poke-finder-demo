@@ -51,11 +51,12 @@ def bfs(start, end):
     return None
 
 
-# Starting BFS from 'Viridian City' to all Geodude capture area by walking
-start_vertex = 'Viridian City'
-capture_area = {"Mt. Moon": None, "Rock Tunnel": None, "Victory Road": None}
-end_vertex = 'Mt. Moon'
-for area_name in capture_area.keys():
-    end_vertex = area_name
-    value = bfs(start_vertex, end_vertex)
-    capture_area[area_name] = value
+if __name__ == '__main__':
+    # Starting BFS from 'Viridian City' to all Geodude capture area by walking
+    start_vertex = 'Viridian City'
+    capture_area = {"Mt. Moon": None, "Rock Tunnel": None, "Victory Road": None}
+    end_vertex = 'Mt. Moon'
+    for area_name in capture_area.keys():
+        end_vertex = area_name
+        value = bfs(start_vertex, end_vertex)
+        capture_area[area_name] = value
