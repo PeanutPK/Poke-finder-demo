@@ -12,14 +12,8 @@ app = customtkinter.CTk()
 app.title("Poke Finder")
 app.attributes('-topmost', True)
 
-menu_frame = customtkinter.CTkFrame(app)
 frame1 = customtkinter.CTkFrame(app)
 frame2 = customtkinter.CTkFrame(app)
-
-features = ['Finder', 'Graphs', 'Stats comparer']
-for option in features:
-    button = customtkinter.CTkButton(menu_frame, text=option)
-    button.pack(side='left', padx=5, pady=5)
 
 player = Image.open('player_idle.png').resize((40, 50))
 player = ImageTk.PhotoImage(player)
@@ -56,7 +50,6 @@ result_label.grid(row=0, column=0, sticky='NSEW')
 frame2.grid_columnconfigure(0, weight=1)
 frame2.rowconfigure(0, weight=1)
 
-menu_frame.pack()
 frame1.pack(fill='both', expand=True)
 frame2.pack(fill='both', expand=True)
 
