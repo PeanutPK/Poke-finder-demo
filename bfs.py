@@ -26,7 +26,7 @@ def bfs(start, end):
 
     while queue:
         current = queue.popleft()
-        # uncomment all the print code below for debugging the paths
+        # uncomment all the print code below to debug the algorithm paths
         # print("Visiting:", current)
         if current == end:
             print("Reached end vertex:", end)
@@ -39,6 +39,7 @@ def bfs(start, end):
             print("Path from start to end:", path)
             return path
 
+        # for checking children of each the vertex
         for neighbor in adj[current].child:
             # print("Checking neighbor:", neighbor)
             if not mark[neighbor]:
@@ -53,7 +54,7 @@ def bfs(start, end):
 
 
 if __name__ == '__main__':
-    # Starting BFS from 'Viridian City' to all Geodude capture area by walking
+    # Starting BFS from 'Viridian City' to all Geodude capture areas by walking
     start_vertex = 'Viridian City'
     capture_area = {"Mt. Moon": None, "Rock Tunnel": None,
                     "Victory Road": None}
